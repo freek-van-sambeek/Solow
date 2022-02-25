@@ -1,12 +1,12 @@
 # Planning of presentation
-Solow model introduction
+Solow model introduction - Amruth
 
-Population growth rates (Chinese economy)
+Population growth rates (Chinese economy) - Gordon
 
-Changing the s to the golden rule s
+Changing the s to the golden rule s - Amruth
 
-Barro model
+Barro model - Gordon
 
-Extrapolation
+Extrapolation - Freek
 
-Conclusion
+Conclusion - Freek

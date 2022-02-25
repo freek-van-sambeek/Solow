@@ -21,8 +21,8 @@ class RnD:
     self.years = [starting_year]
 
   def step(self):
-    self.K.append(self.K + self.I - self.D)
-    self.A.append(self.A[-1] * (1 + ((1 - self.u) * self.N) / self.m))
+    self.K.append(self.K[-1] + self.I[-1] - self.D[-1])
+    self.A.append(self.A[-1] * (1 + ((1 - self.u) * self.L[-1]) / self.m))
     self.L.append((1 + self.n) * self.L[-1])
 
     self.Y.append((self.K[-1] ** self.a) * ((self.u * self.A[-1] * self.L[-1]) ** (1 - self.a)))
@@ -33,30 +33,30 @@ class RnD:
 
     self.years.append(self.years[-1] + 1)
 
-# A function that permanently updates the parameter values that are put in
-def update_parameters(self, a, n, d, s, u, K, A, L):    
-  # If the argument is not none, change the parameter value of the class
-  if a:
-    self.a = a
-  if n:
-    self.n = n
-  if d:
-    self.d = d
-  if s:
-    self.s = s
-  if u:
-    self.u = u
-  if K:
-    self.K[-1] = K
-  if A:
-    self.A[-1] = A
-  if L:
-    self.L[-1] = L
+  # A function that permanently updates the parameter values that are put in
+  def update_parameters(self, a, n, d, s, u, K, A, L):    
+    # If the argument is not none, change the parameter value of the class
+    if a:
+      self.a = a
+    if n:
+      self.n = n
+    if d:
+      self.d = d
+    if s:
+      self.s = s
+    if u:
+      self.u = u
+    if K:
+      self.K[-1] = K
+    if A:
+      self.A[-1] = A
+    if L:
+      self.L[-1] = L
 
-# Return an array from the class that can be used to quickly create a pandas dataframe
-def dataset(self):
-  dataset = []
-  for i in range(len(self.Y)):
-    dataset.append([self.
-    country_iso, self.years[i], self.Y[i], self.K[i], self.A[i], self.L[i], self.I[i], self.C[i], self.D[i]])
-  return dataset
+  # Return an array from the class that can be used to quickly create a pandas dataframe
+  def dataset(self):
+    dataset = []
+    for i in range(len(self.Y)):
+      dataset.append([self.
+      country_iso, self.years[i], self.Y[i], self.K[i], self.A[i], self.L[i], self.I[i], self.C[i], self.D[i]])
+    return dataset

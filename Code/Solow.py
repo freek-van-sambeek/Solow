@@ -1,3 +1,5 @@
+import math
+
 # This file contains the class for the Solow model
 class Solow:
   def __init__(self, a=1/3, g=0, n=0, d=0.02, s=0.1, K_0=1, A_0=1, L_0=1, country_iso='Zombieland', starting_year=2022):
@@ -50,13 +52,25 @@ class Solow:
 
   def simulate(self, steps, shock_year=-1, a=None, g=None, n=None, d=None, s=None, K=None, A=None, L=None):
     title = f'Solow model simulation with the initial parameter values of a={self.a}, g={self.g}, n={self.n}, d={self.d}, s={self.s}.'
+    
+    # Resetting some of the property arrays if the simulation is called multiple times
+    self.K = [self.K[0]]                                                                
+    self.A = [self.A[0]]                                                                
+    self.L = [self.L[0]]                                                                
+    self.Y = [self.Y[0]]  
+    self.I = [self.I[0]]                                                 
+    self.C = [self.C[0]]                                          
+    self.D = [self.D[0]] 
+
+    self.years = [self.years[0]]
+
     # Adding the new property values for each year in the simulation
     for i in range(steps):
       # Update the parameters in the year of the shock
       if i == shock_year:
         self.update_parameters(a, g, n, d, s, K, A, L)
       self.step()
-    return {'title': title, 'header': ['Country Iso', 'Year', 'Output', 'Capital', 'Investment', 'Consumption', 'Depreciation'], 'dataset': self.dataset()}
+    return {'title': title, 'header': ['Country Iso', 'Year', 'Output', 'Capital', 'TFP', 'Labour', 'Investment', 'Consumption', 'Depreciation'], 'dataset': self.dataset()}
   
   # A function that permanently updates the parameter values that are put in
   def update_parameters(self, a, g, n, d, s, K, A, L):    
@@ -83,7 +97,7 @@ class Solow:
     dataset = []
     for i in range(len(self.Y)):
       dataset.append([self.
-      country_iso, self.years[i], self.Y[i], self.K[i], self.I[i], self.C[i], self.D[i]])
+      country_iso, self.years[i], self.Y[i], self.K[i], self.A[i], self.L[i], self.I[i], self.C[i], self.D[i]])
     return dataset
 
   # Return the per capita array of that put in
@@ -92,6 +106,14 @@ class Solow:
     for i in range(len(array)):
       per_capita.append(array[i] / self.L[i])
     return per_capita
+
+  # Return the log values of an array
+  @staticmethod
+  def log_array(array):
+    log_array = []
+    for i in range(len(array)):
+      log_array.append(math.ln(array[i]))
+    return log_array
 
   # Return an array of the absolute change of the values in an array
   @staticmethod

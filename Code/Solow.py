@@ -2,7 +2,7 @@ import math
 
 # This file contains the class for the Solow model
 class Solow:
-  def __init__(self, a=1/3, g=0, n=0, d=0.02, s=0.1, K_0=1, A_0=1, L_0=1, country_iso='Zombieland', starting_year=2022):
+  def __init__(self, a=0.33, g=0, n=0, d=0.02, s=0.1, K_0=1, A_0=1, L_0=1, country_iso='Zombieland', starting_year=2022):
     # Parameter values
     self.a = a                                                                    # 'a' is the share of output that will be attributed to capital, '(1 - a)' will be that attributed to effective labour 
     self.g = g                                                                    # 'g' is the growth rate of tfp per time period
@@ -86,11 +86,11 @@ class Solow:
     if s:
       self.s = s
     if K:
-      self.K = K
+      self.K = K[-1]
     if A:
-      self.A = A
+      self.A = A[-1]
     if L:
-      self.L = L
+      self.L = L[-1]
 
   # Return an array from the class that can be used to quickly create a pandas dataframe
   def dataset(self):

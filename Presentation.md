@@ -21,6 +21,6 @@
 
 - Changing the s to the golden rule s - Amruth (4)
 
-- Extrapolation - Freek (4), results of this world simulation show that the Solow model might be quite limited in its use, similar to what was argued in a 1966 paper of Caselli and Barro (Solow model not corresponding to empirical findings). Reasons in this case clear as population growth and the capital accumulation might play a too big part in determining GDP growth as growth herein might be large compared to TFP growth as defined by our dataset.
+- Extrapolation - Freek (4), results of this world simulation show that the Solow model might be quite limited in its use, similar to what was argued in a 1966 paper of Caselli and Barro (Solow model not corresponding to empirical findings). Only in global terms it seems to correspond well, as shown in the other examples. Reasons in this case clear as population growth and the capital accumulation might play a too big part in determining GDP growth as growth herein might be large compared to TFP growth as defined by our dataset.
 
 - Conclusion - Freek (5 & 6), Obstacles: Class simulation not corresponding to data, using dataset documentation and to extrapolate on. Tips for other students - make a well-structured plan beforehand of how you want your class to be put together and what you want to use this class for, the use of the class should be the core of its design. In that case, you might have already looked into the dataset before making the class etcetera.

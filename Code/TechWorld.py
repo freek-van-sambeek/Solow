@@ -29,7 +29,7 @@ class TechWorld:
         if country.A[-1] > max_A:
           max_A = country.A[-1]
       for country in self.countries:
-        country.m = 50000000 * country.A[-1] / max_A
+        country.m = 100000000 * country.A[-1] / max_A
         country.step()
     
     # Generating the final dataset
